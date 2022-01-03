@@ -1,8 +1,11 @@
 const express = require("express");
+
 const app = express();
 
-express.static("./", express.urlencoded("utf-8"));
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
-app.get("/", express.static("./"))
+app.use(express.static('./'))
+app.use(require("./api/routes"))
 
 app.listen(3000, () => console.log("server listen"));

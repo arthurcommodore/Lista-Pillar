@@ -1,0 +1,14 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Number</th>
+      </tr>
+    </thead>
+    <tbody :foreach="contato in contatos">
+      <tr>
+        <td>{{contato.name}}</td>
+        <td>{{contato.number}}</td>
+      </tr>
+    </tbody>
+  </table>

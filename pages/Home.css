@@ -1,0 +1,23 @@
+
+h1 {
+    text-align: center;
+    margin: 10px;
+}
+
+.table-container {
+    width: 30rem;
+    height: 20rem;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.form-container {
+    width: 30rem;
+    height: 20rem;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.form-container input {
+    margin-bottom: 20px;
+}
