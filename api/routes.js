@@ -52,7 +52,7 @@ routes.get("/remove", (req, res) => {
 
         const contentJson = JSON.parse(content);
         const contentFilter = contentJson.contatos.filter(contato => contato.id != req.query.id);
-        console.log(contentFilter)
+        
         writeFile(path, JSON.stringify({contatos:contentFilter}) );
         res.send({"ok": true})
     })
