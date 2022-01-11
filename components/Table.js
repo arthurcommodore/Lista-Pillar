@@ -1,19 +1,38 @@
-yum.define([PiUrl.create("components/Table.html")], function(html) {
+yum.define([
+    PiUrl.create("components/Table.html"),
+    PiUrl.create("components/Table.css"),
+    PiUrl.create("components/TableModel.js")
+], function(html) {
     PiExport("Table", class extends PiComponent {
+        
+        static contatosValue = []
         instances() {
             this.view = html;
             this.contatos = [];
+
+            this.table = new TableModel();
         }
 
-        async viewDidLoad() {
-            this.contatos.load(await this.fetchContatos());
+        viewDidLoad() {
+            this.updateTable();
         }
 
-        async fetchContatos() {
-            const response = await fetch("contatos");
-            const dataContatos = await response.json();
+       updateTable() {
+            this.table.inject(this)
+            const contatos = this.contatos
 
-            return dataContatos.contatos;
+
+            this.table.get()
+                .ok(function(data) {
+                    contatos.clear();
+                    contatos.load(data.contatos);
+                })
+        }
+
+        deleteContato(contato) {
+            this.table.remove(contato.id).ok( () => {
+                this.updateTable()
+            })
         }
     })
 })

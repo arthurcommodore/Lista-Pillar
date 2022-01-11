@@ -10,14 +10,18 @@ yum.define([
 
         sendContato(e) {
             e.preventDefault();
-            this.contatos.load(await this.fetchContatos());
 
             const erros = this.form.inject(this);
-
             if(erros.length > 0) {
                 return;
             }
-            this.form.save().ok()
+
+            const table = this.table;
+            this.form.save().ok(() => {
+
+                this.event.trigger("updateTable");
+                table.updateTable();
+            })
         }
     })
 })

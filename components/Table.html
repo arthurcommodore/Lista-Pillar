@@ -5,10 +5,14 @@
         <th scope="col">Number</th>
       </tr>
     </thead>
-    <tbody :foreach="contato in contatos">
-      <tr>
+    <tbody >
+      <tr :foreach="contato in contatos">
         <td>{{contato.name}}</td>
         <td>{{contato.number}}</td>
+        <td>
+          <img src="../imgs/lixeira.png" alt=""
+           @click="deleteContato({{contato}})">
+        </td>
       </tr>
     </tbody>
   </table>

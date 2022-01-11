@@ -10,7 +10,7 @@ yum.define([
             this.view = html;
         }
         viewDidLoad() {
-            this.form.inject(this.table)
+            this.form.table = this.table
         }
     });
 })
