@@ -5,11 +5,9 @@ yum.define([
 ], function(html) {
     PiExport("Table", class extends PiComponent {
         
-        static contatosValue = []
         instances() {
             this.view = html;
             this.contatos = [];
-
             this.table = new TableModel();
         }
 
@@ -17,22 +15,25 @@ yum.define([
             this.updateTable();
         }
 
-       updateTable() {
-            this.table.inject(this)
-            const contatos = this.contatos
-
+        updateTable() {
+            this.table.inject(this);
+            const contatos = this.contatos;
 
             this.table.get()
                 .ok(function(data) {
                     contatos.clear();
                     contatos.load(data.contatos);
-                })
+                });
         }
 
         deleteContato(contato) {
             this.table.remove(contato.id).ok( () => {
-                this.updateTable()
-            })
+                this.updateTable();
+            });
         }
-    })
-})
+
+        editContato(contato) {
+            app.contato = contato;
+        }
+    });
+});

@@ -1,0 +1,22 @@
+<div class="editContato">
+    <h1 class="title">Editar Contato</h1>
+
+    <div class="editForm">
+        <form>
+          <input type="hidden" data-model="id" :value="{{contato.id}}">
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Nome</label>
+              <div class="col-sm-10">
+                <input data-model="name" type="text" class="form-control" id="name" placeholder="Fulano de Tal" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Number</label>
+              <div class="col-sm-10">
+                <input data-model="number" type="text" class="form-control" id="inputPassword" placeholder="Number">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2" @click="sendContato($event)">Update</button>
+          </form>
+    </div>
+</div>p

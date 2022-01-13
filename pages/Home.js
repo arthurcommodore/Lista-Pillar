@@ -9,8 +9,13 @@ yum.define([
         instances() {
             this.view = html;
         }
+        
         viewDidLoad() {
-            this.form.table = this.table
+
+            this.form.event.listen("updateTable", () => {
+                this.table.updateTable();
+            });
+
         }
     });
 })
