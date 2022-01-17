@@ -9,10 +9,6 @@ yum.define([
         }
 
         sendContato(e) {
-       
-        }
-
-        teste() {
             e.preventDefault();
 
             const erros = this.form.inject(this);
