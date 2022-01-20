@@ -13,8 +13,8 @@ class App extends PiApp {
     loadHomePage() {
         yum.download([PiUrl.create("pages/Home.js")], () => {
             const home = new Home();
-            home.render(app.$element)
-            //this.setPage(new Home());
+            //home.render(app.$element)
+            this.setPage(home);
         });
     }
 
@@ -22,7 +22,8 @@ class App extends PiApp {
         yum.download([PiUrl.create("pages/EditContato.js")], () => {
             const editContato = new EditContato();
 
-            editContato.render(app.$element);
+            //editContato.render(app.$element);
+            this.setPage(editContato)
         })
     }
 }

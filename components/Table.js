@@ -22,6 +22,9 @@ yum.define([
             this.table.get()
                 .ok(function(data) {
                     contatos.clear();
+                    console.log(data)
+                    console.log(contatos)
+
                     contatos.load(data.contatos);
                 });
         }
@@ -33,6 +36,7 @@ yum.define([
         }
 
         editContato(contato) {
+            console.log(contato)
             app.contato = contato;
         }
     });

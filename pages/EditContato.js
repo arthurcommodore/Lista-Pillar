@@ -19,10 +19,6 @@ yum.define([
         sendContato(e) {
             e.preventDefault();
 
-            this.event.listen("recebedId", (id) => {
-                this.id = id;
-            })
-
             const erros = this.editContato.inject(this);
             if(erros.length > 0) {
                 return;
